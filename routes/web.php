@@ -22,7 +22,7 @@ Route::post('/ajax/process_exchange_form', [PageController::class, 'processExcha
 Route::get('/order/{cscv}', [PageController::class, 'order']);
 
 Route::get('/exchange', [PageController::class, 'exchange']);
-Route::get('/contacts', [PageController::class, 'contacts']);
+Route::get('/contact', [PageController::class, 'contacts']);
 Route::get('/privacy-policy', [PageController::class, 'privacyPolicy']);
 Route::get('/terms-of-use', [PageController::class, 'termsOfUse']);
 
