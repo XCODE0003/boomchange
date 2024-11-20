@@ -257,7 +257,7 @@ $10</p>
 					<p>Boom Change is a digital asset exchange that allows you to buy and sell cryptocurrencies. We offer a wide variety of digital assets exchange, including Bitcoin, Ethereum, Litecoin, and more.Our mission is to make it easy for everyone to trade digital assets, and we are committed to providing our users with the best possible experience.</p>				</div><!-- /.about-style-one-content -->
 			</div><!-- /.col-md-6 -->
 			<div class="col-md-6">
-				<img src="uploads/content/c3b7a3d.jpg"  class="moc-img" alt="Exchange crypto with boltchange">
+				<img src="uploads/content/c3b7a3d.jpg?v=1"  class="moc-img" alt="Exchange crypto with boltchange">
 			</div><!-- /.col-md-6 -->
 		</div><!-- /.row -->
 	</div><!-- /.thm-container -->
