@@ -61,7 +61,7 @@ var cookie_domain = 'boltchange.com';
             </div>
             <div class="collapse navbar-collapse main-navigation mainmenu " id="main-nav-bar">
                 <ul class="nav navbar-nav navigation-box">
-                    <li><a class="inner-link" href="blog/1.html">Blog</a></li>
+                    <li><a class="inner-link" href="blog/1">Blog</a></li>
                     <li><a class="inner-link" href="/#home-how-it-works">How It Works</a></li>
                     <li><a class="inner-link" href="/#home-about-us">About Us</a> </li>
                     <li><a href="terms-of-use">Terms of Use</a></li>
@@ -121,7 +121,7 @@ var cookie_domain = 'boltchange.com';
 					<ul class="links-list">
 						<li><a href="/#home-about-us">About Us</a></li>
 						<li><a href="/contact">Contacts</a></li>
-						<li><a href="faq.html">FAQ</a></li>
+						<li><a href="faq">FAQ</a></li>
 					</ul><!-- /.links-list -->
 				</div><!-- /.single-footer-widget -->
 			</div>
@@ -142,13 +142,13 @@ var cookie_domain = 'boltchange.com';
 						<h3>Exchange Pairs</h3>
 					</div><!-- /.title -->
 					<ul class="links-list clearfix exchange-pairs">
-						<li><a href="direction/usdt-to-cash-app.html">USDT (TRC20) to Cash App</a></li>
-						<li><a href="direction/usdt-to-wise.html">USDT (TRC20) to TransferWise</a></li>
-						<li><a href="direction/usdt-payoneer.html">USDT (TRC20) to Payoneer</a></li>
-						<li><a href="direction/btc-to-skrill.html">BTC to Skrill</a></li>
-						<li><a href="direction/trust-wallet-to-paypal.html">Trust Wallet to Paypal</a></li>
-						<li><a href="direction/USDT-to-Skrill.html">USDT (TRC20) to Skrill</a></li>
-						<li><a href="direction/usdt-to-paypal.html">USDT (TRC20) to Paypal</a></li>
+						<li><a href="direction/usdt-to-cash-app">USDT (TRC20) to Cash App</a></li>
+						<li><a href="direction/usdt-to-wise">USDT (TRC20) to TransferWise</a></li>
+						<li><a href="direction/usdt-payoneer">USDT (TRC20) to Payoneer</a></li>
+						<li><a href="direction/btc-to-skrill">BTC to Skrill</a></li>
+						<li><a href="direction/trust-wallet-to-paypal">Trust Wallet to Paypal</a></li>
+						<li><a href="direction/USDT-to-Skrill">USDT (TRC20) to Skrill</a></li>
+						<li><a href="direction/usdt-to-paypal">USDT (TRC20) to Paypal</a></li>
 					</ul><!-- /.links-list -->
 				</div><!-- /.single-footer-widget -->
 			</div>
@@ -158,10 +158,10 @@ var cookie_domain = 'boltchange.com';
 						<h3>Blog</h3>
 					</div><!-- /.title -->
 					<ul class="links-list">
-						<li><a href="post/boltchange-Crypto-Exchange.html">User's Guide: Navigating boltchange's Crypto Exchange Features</a></li>
-						<li><a href="post/Exchange-on-boltchange-in-2024.html">Top Cryptocurrencies to Exchange on boltchange in 2024</a></li>
-						<li><a href="post/boltchange-to-paypal.html">Seamless Crypto to PayPal Transfers: How boltchange Makes It Possible</a></li>
-						<li><a href="post/boltchange-platform-to-payoneer.html">Exploring the Benefits of Using Crypto with Payoneer through boltchange</a></li>
+						<li><a href="post/boltchange-Crypto-Exchange">User's Guide: Navigating boltchange's Crypto Exchange Features</a></li>
+						<li><a href="post/Exchange-on-boltchange-in-2024">Top Cryptocurrencies to Exchange on boltchange in 2024</a></li>
+						<li><a href="post/boltchange-to-paypal">Seamless Crypto to PayPal Transfers: How boltchange Makes It Possible</a></li>
+						<li><a href="post/boltchange-platform-to-payoneer">Exploring the Benefits of Using Crypto with Payoneer through boltchange</a></li>
 					</ul><!-- /.links-list -->
 				</div><!-- /.single-footer-widget -->
 			</div><!-- /.col-sm-4 -->
