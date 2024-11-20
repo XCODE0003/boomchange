@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Order</title>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="generator" content="SMARTWEB.AM">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="boltchange.com">
+<meta property="og:title" content="Order | boltchange.com">
+<meta property="og:url" content="https://boltchange.com/order/3c2cfe335f">
+<meta property="og:description" content="">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Order | boltchange.com">
+<meta name="twitter:description" content="">
+<meta name="resource-type" content="Document">
+<meta name="revisit" content="1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<meta name="google-site-verification" content="grGxK27seKZVHG_DBe91RPAa7u6QysaGKOJpLHZMFFc">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/images/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/images/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+<link rel="manifest" href="/images/favicon/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="/css/first.css?ver=3.7.8">
+<link rel="stylesheet" href="/css/style.css?ver=3.7.8">
+<link rel="stylesheet" href="/css/responsive.css?ver=3.7.8">
+<script>
+var gw = new Array(); gw['lng']="en";
+var sl_lang_current = "en";
+var cookie_domain = 'boltchange.com';
+</script>
+</head>
+<body class="order active-preloader-ovh">
+<div class="header-sticky-space"></div>
+<div class="preloader"><div class="spinner"></div></div>
+<header class="header header-home-one">
+    <nav class="navbar navbar-default header-navigation stricky">
+        <div class="thm-container clearfix">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed bitmex-icon-menu" data-toggle="collapse" data-target=".main-navigation" aria-expanded="false"> </button>
+                <a class="navbar-brand" href="/">
+                    <img src="/images/page/logo.png" alt="boltchange">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse main-navigation mainmenu " id="main-nav-bar">
+                <ul class="nav navbar-nav navigation-box">
+                    <li><a class="inner-link" href="/blog">Blog</a></li>
+                    <li><a class="inner-link" href="/#home-how-it-works">How It Works</a></li>
+                    <li><a class="inner-link" href="/#home-about-us">About Us</a> </li>
+                    <li><a href="/terms-of-use">Terms of Use</a></li>
+                    <li><a href="/contacts">Contacts</a></li>
+                </ul>                
+            </div>
+        </div>
+    </nav>   
+
+</header>
+<section class="inner-banner gray-bg text-center">
+	<div class="thm-container">
+		<div class="breadcumb">
+			<a href="/">Home</a><!--
+			--><span class="sep">-</span><!--
+			--><span class="page-name">Order</span>
+		</div><!-- /.breadcumb -->
+		<h1>ORDER #54522</h1>
+	</div><!-- /.thm-container -->
+</section><!-- /.inner-banner -->
+
+<section class="order-section" data-cscv="3c2cfe335f">
+    <div class="thm-container">
+		<div class="title">
+			<h3>Please send the funds you would like to exchange</h3>
+            <div class="hidden">Please send the funds for exchange within 20 minutes</div>
+		</div>
+		<div class="instructions">
+			<div class="instructions-title">Instructions:</div>
+            <div class="item-1-c">
+				<div class="item i1"><span class="step-number">STEP1.</span> Send <span class="font-weight-600">{{ $info['exchange_amount_from'] }} {{ $info['currency_from']['name'] }}</span> to our account: <span class="to-wallet font-weight-600">{{ $info['currency_from']['address'] }}</span></div>
+				<div class="qr-code">
+					<div class="qr-code-inner"><img src="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl={{ urlencode($info['currency_from']['address']) }}" alt="{{ $info['currency_from']['address'] }}"></div>
+				</div>
+			</div>
+			<div class="item i2"><span class="step-number">STEP2.</span> Click "I have paid!" button bellow.</div>
+			<div class="item i3"><span class="step-number">STEP3.</span> After your deposit has been credited to our account it will take 10-60 minutes to complete your order.</div>
+		</div>
+		<div class="order-statuses">
+			<div class="item i1 pending"><span>Awaiting deposit</span></div>
+			<div class="item i2"><span>Confirming</span></div>
+			<div class="item i3"><span>Exchanging</span></div>
+			<div class="item i4"><span>Sending to you</span></div>
+		</div>
+		<div class="buttons-c">
+
+			<button id="order-paid-confirm" class="thm-btn yellow-bg" type="button">I have paid!</button>
+		</div>
+		<div class="transaction-info">
+			<div class="item">
+				<div class="i1">You Get:</div>
+				<div class="value you-get"><span class="symbol">&asymp;</span> <span class="val">{{ $info['exchange_amount_to'] }} {{ $info['currency_to']['name'] }}</span></div>
+			</div>
+			<div class="item">
+				<div class="i1">To Wallet address:</div>
+				<div class="value to-wallet"><span class="val">{{ $info['recipient_wallet'] }}</span></div>
+			</div> 
+		</div>
+    </div>
+</section>
+<div class="footer-top">
+	<div class="thm-container">
+		<div class="row">
+			<div class="col-md-4 col-xs-12">
+				<div class="single-footer-top">
+					<p><i class="fa fa-envelope-o"></i><span>Email: </span><a href="mailto:info@boltchange.com">info@boltchange.com</a></p>
+				</div><!-- /.single-footer-top -->
+			</div><!-- /.col-md-4 -->
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<div class="single-footer-top">
+					<p><i class="fa fa-phone"></i><span>Call: </span><a href="tel:+18502800803">+18502800803</a></p>
+				</div><!-- /.single-footer-top -->
+			</div><!-- /.col-md-4 -->
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<div class="single-footer-top">
+					<p><i class="fa fa-whatsapp"></i><span>Call: </span><a href="tel:+18502800803">+18502800803</a></p>
+				</div><!-- /.single-footer-top -->
+			</div><!-- /.col-md-4 -->
+		</div><!-- /.row -->
+	</div><!-- /.thm-container -->
+</div><!-- /.footer-top -->
+
+<footer class="site-footer">
+	<div class="thm-container">
+		<div class="row masonary-layout">
+			<div class="col-md-2 col-sm-6 col-xs-12">
+				<div class="single-footer-widget">
+					<div class="title">
+						<h3>About</h3>
+					</div><!-- /.title -->
+					<ul class="links-list">
+						<li><a href="/#home-about-us">About Us</a></li>
+						<li><a href="/contacts">Contacts</a></li>
+						<li><a href="/faq">FAQ</a></li>
+					</ul><!-- /.links-list -->
+				</div><!-- /.single-footer-widget -->
+			</div>
+			<div class="col-md-2 col-sm-6 col-xs-12">
+				<div class="single-footer-widget">
+					<div class="title">
+						<h3>Legal</h3>
+					</div><!-- /.title -->
+					<ul class="links-list">
+						<li><a href="/terms-of-use">Terms of Use</a></li>
+						<li><a href="/privacy-policy">Privacy policy</a></li>
+					</ul><!-- /.links-list -->
+				</div><!-- /.single-footer-widget -->
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<div class="single-footer-widge hiddent">
+					<div class="title">
+						<h3>Exchange Pairs</h3>
+					</div><!-- /.title -->
+					<ul class="links-list clearfix exchange-pairs">
+						<li><a href="/direction/usdt-to-cash-app">USDT (TRC20) to Cash App</a></li>
+						<li><a href="/direction/usdt-to-wise">USDT (TRC20) to TransferWise</a></li>
+						<li><a href="/direction/usdt-payoneer">USDT (TRC20) to Payoneer</a></li>
+						<li><a href="/direction/btc-to-skrill">BTC to Skrill</a></li>
+						<li><a href="/direction/trust-wallet-to-paypal">Trust Wallet to Paypal</a></li>
+						<li><a href="/direction/USDT-to-Skrill">USDT (TRC20) to Skrill</a></li>
+						<li><a href="/direction/usdt-to-paypal">USDT (TRC20) to Paypal</a></li>
+					</ul><!-- /.links-list -->
+				</div><!-- /.single-footer-widget -->
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<div class="single-footer-widget">
+					<div class="title">
+						<h3>Blog</h3>
+					</div><!-- /.title -->
+					<ul class="links-list">
+						<li><a href="/post/boltchange-Crypto-Exchange">User's Guide: Navigating boltchange's Crypto Exchange Features</a></li>
+						<li><a href="/post/Exchange-on-boltchange-in-2024">Top Cryptocurrencies to Exchange on boltchange in 2024</a></li>
+						<li><a href="/post/boltchange-to-paypal">Seamless Crypto to PayPal Transfers: How boltchange Makes It Possible</a></li>
+						<li><a href="/post/boltchange-platform-to-payoneer">Exploring the Benefits of Using Crypto with Payoneer through boltchange</a></li>
+					</ul><!-- /.links-list -->
+				</div><!-- /.single-footer-widget -->
+			</div><!-- /.col-sm-4 -->
+		</div><!-- /.row -->
+	</div><!-- /.thm-container -->
+</footer><!-- /.site-footer -->
+
+<div class="footer-bottom">
+	<div class="thm-container clearfix">
+		<div class="pull-left copy-text">
+			<p>&copy; 2024 boltchange. All rights reserved.</p>
+		</div><!-- /.pull-left copy-text -->
+		<div class="social pull-right">
+			<a href="https://x.com/BoltChange_com" class="fa fa-twitter" target="_blank"></a><a href="https://www.instagram.com/boltchange_com?igshid=OGQ5ZDc2ODk2ZA%3D%3D&amp;utm_source=qr" class="fa fa-instagram" target="_blank"></a><a href="https://www.youtube.com/@boltchange_com" class="fa fa-youtube-play" target="_blank"></a>        </div><!-- /.social -->
+		
+	</div><!-- /.thm-container -->
+</div><!-- /.footer-bottom -->
+
+
+<script>var _smartsupp = _smartsupp || {};
+_smartsupp.key = '13d35c10fc9d3a578b46e0cac6d4b202331d321c';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);</script>             
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2KQ2JZQ1K3"></script>
+<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-2KQ2JZQ1K3');</script>
+<script src="/js/jquery.js"></script>
+<script src="/js/myhtmlselect.js?ver=3.7.8"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/custom.js?ver=3.7.8"></script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInitN"></script>
+<script src="//code.tidio.co/3teqm79ccbgvspbbyu3pqoopv5gfb7qy.js" async></script>
+<span style="display:none;">0.013 second</span></body>
+</html>

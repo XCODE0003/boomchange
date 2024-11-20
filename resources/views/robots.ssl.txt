@@ -1,0 +1,11 @@
+User-agent: *
+Host: https://boltchange.com
+Crawl-delay: 5
+Disallow: *?
+Allow: /css/*
+Allow: /js/*
+Allow: /images/*
+Allow: /uploads/*
+
+User-agent: Yandex
+Crawl-delay: 4
