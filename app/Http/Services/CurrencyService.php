@@ -28,7 +28,7 @@ class CurrencyService
             ->values()
             ->toArray();
 
-        $minAmount = 3;
+        $minAmount = $fromCurrency->min_amount;
     
             
         return [
