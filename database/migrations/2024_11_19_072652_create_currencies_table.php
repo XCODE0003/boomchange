@@ -20,7 +20,7 @@ return new class extends Migration
             $table->enum('type', ['fiat', 'crypto'])->default('fiat');
             $table->boolean('static_course')->default(false);
             $table->string('course')->nullable();
-            $table->decimal('min_amount', 10, 2)->nullable();
+            $table->decimal('min_amount', 22, 12)->nullable();
             $table->string('coinmarketcap_id')->nullable();
             $table->string('address')->nullable();
             $table->timestamps();
