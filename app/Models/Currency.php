@@ -17,6 +17,7 @@ class Currency extends Model
         'type',
         'static_course',
         'address',
+        'min_amount',
         'course',
     ];
 
