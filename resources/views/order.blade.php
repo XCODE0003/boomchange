@@ -95,7 +95,7 @@ var cookie_domain = 'boltchange.com';
             <div class="item-1-c">
 				<div class="item i1"><span class="step-number">STEP1.</span> Send <span class="font-weight-600">{{ $info['exchange_amount_from'] }} {{ $info['currency_from']['name'] }}</span> to our account: <span class="to-wallet font-weight-600">{{ $info['currency_from']['address'] }}</span></div>
 				<div class="qr-code">
-					<div class="qr-code-inner"><img src="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl={{ urlencode($info['currency_from']['address']) }}" alt="{{ $info['currency_from']['address'] }}"></div>
+					<div class="qr-code-inner"><img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data={{ urlencode($info['currency_from']['address']) }}" alt="{{ $info['currency_from']['address'] }}"></div>
 				</div>
 			</div>
 			<div class="item i2"><span class="step-number">STEP2.</span> Click "I have paid!" button bellow.</div>

@@ -69,7 +69,7 @@ var cookie_domain = 'boltchange.com';
         <div class="thm-container clearfix">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed bitmex-icon-menu" data-toggle="collapse" data-target=".main-navigation" aria-expanded="false"> </button>
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="/">
                     <img src="images/page/logo.png" alt="boltchange">
                 </a>
             </div>
@@ -78,7 +78,7 @@ var cookie_domain = 'boltchange.com';
                     <li><a class="inner-link" href="blog/1.html">Blog</a></li>
                     <li><a class="inner-link" href="#home-how-it-works">How It Works</a></li>
                     <li><a class="inner-link" href="#home-about-us">About Us</a> </li>
-                    <li><a href="terms-of-use.html">Terms of Use</a></li>
+                    <li><a href="terms-of-use">Terms of Use</a></li>
                     <li><a href="/contact">Contacts</a></li>
                 </ul>                
             </div>
@@ -360,8 +360,8 @@ $10</p>
 						<h3>Legal</h3>
 					</div><!-- /.title -->
 					<ul class="links-list">
-						<li><a href="terms-of-use.html">Terms of Use</a></li>
-						<li><a href="privacy-policy.html">Privacy policy</a></li>
+						<li><a href="terms-of-use">Terms of Use</a></li>
+						<li><a href="privacy-policy">Privacy policy</a></li>
 					</ul><!-- /.links-list -->
 				</div><!-- /.single-footer-widget -->
 			</div>
