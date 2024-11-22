@@ -54,7 +54,7 @@ class CurrencyService
         $toCurrency = Currency::find($data['exchange_to']);
         
         $minAmount = $toCurrency->min_amount;
-        $exchangeAmount = ($data['exchange_amount_to'] * $toCurrency->course) / $fromCurrency->course;
+        $exchangeAmount = $data['exchange_amount_to'] / ($fromCurrency->course / $toCurrency->course);
         
         return [
             'error' => 0,
@@ -91,7 +91,7 @@ class CurrencyService
         $toCurrency = Currency::find($data['exchange_to']);
         
         $minAmount = $toCurrency->min_amount;
-        $exchangeAmount = ($data['exchange_amount_to'] * $toCurrency->course) / $fromCurrency->course;
+        $exchangeAmount = $data['exchange_amount_to'] / ($fromCurrency->course / $toCurrency->course);
         
             return [
                 'error' => 0,
