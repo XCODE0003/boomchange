@@ -112,7 +112,7 @@ var cookie_domain = 'boltchange.com';
 	<div class="controls-group i2 clearfix">
 		<div class="control-item i1">
 			<span class="head-pl">You Get</span>
-			<input id="exchange-amount-to" class="number-t" type="text" name="exchange_amount_to" maxlength="20" value="0.95" placeholder="Enter Amount">
+			<input id="exchange-amount-to" class="number-t" type="text" name="exchange_amount_to" maxlength="20" value="{{$exchangeAmount}}" placeholder="Enter Amount">
 		</div>
         <div class="control-item">
 			<select id="exchange-to" name="exchange_to">

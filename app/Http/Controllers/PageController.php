@@ -10,7 +10,9 @@ class PageController extends Controller
     public function index()
     {
         $directions = (new CurrencyService())->getDirectionsData();
-        return view('index', compact('directions'));
+        $exchangeAmount = 1 / ($directions['directions_from_ar'][0]['course'] / $directions['directions_to_ar'][0]['course']);
+        
+        return view('index', compact('directions', 'exchangeAmount'));
         
     }
 
