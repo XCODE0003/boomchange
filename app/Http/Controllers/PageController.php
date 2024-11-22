@@ -26,6 +26,7 @@ class PageController extends Controller
     public function exchange(Request $request)
     {
         $directions = (new CurrencyService())->getDirectionsData();
+   
         $currency_from = Currency::find($request->exchange_from);
         $currency_to = Currency::find($request->exchange_to);
         $data = [

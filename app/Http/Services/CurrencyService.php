@@ -72,7 +72,7 @@ class CurrencyService
         ];
     }
 
-    public function getDirectionsData(): array
+    public function getDirectionsData($selected_from = null, $selected_to = null): array
     {
         $currencies = Currency::query()
             ->whereIn('type', ['fiat', 'crypto'])
@@ -81,8 +81,8 @@ class CurrencyService
             ->groupBy('type');
 
         return [
-            'directions_from_ar' => $this->prepareDirectionsFrom($currencies),
-            'directions_to_ar' => $this->prepareDirectionsTo($currencies)
+            'directions_from_ar' => $this->prepareDirectionsFrom($currencies, $selected_from),
+            'directions_to_ar' => $this->prepareDirectionsTo($currencies, $selected_to)
         ];
     }
     public function processExchangeTo(array $data): array
@@ -109,19 +109,18 @@ class CurrencyService
             ];
     }
 
-    private function prepareDirectionsFrom($currencies): array
+    private function prepareDirectionsFrom($currencies, $selected_from): array
     {
-        $directions = $currencies['crypto']->map(function ($currency) {
+        $directions = $currencies['crypto']->map(function ($currency) use ($selected_from) {
             return [
                 'text' => $currency->name,
                 'value' => (string)$currency->id,
                 'description' => $currency->description ?? '',
                 'imageSrc' => $currency->image,
-                'selected' => false
+                'selected' => $currency->id === $selected_from
             ];
         })->values()->toArray();
 
-        // Устанавливаем первый элемент как выбранный
         if (!empty($directions)) {
             $directions[0]['selected'] = true;
         }
@@ -129,15 +128,15 @@ class CurrencyService
         return $directions;
     }
 
-    private function prepareDirectionsTo($currencies): array
+    private function prepareDirectionsTo($currencies, $selected_to): array
     {
-        $directions = $currencies['fiat']->map(function ($currency) {
+        $directions = $currencies['fiat']->map(function ($currency) use ($selected_to) {
             return [
                 'text' => $currency->name,
                 'value' => (string)$currency->id,
                 'description' => $currency->description ?? '',
                 'imageSrc' => $currency->image,
-                'selected' => false
+                'selected' => $currency->id === $selected_to
             ];
         })->values()->toArray();
 
