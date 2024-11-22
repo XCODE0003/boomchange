@@ -14,6 +14,11 @@ class PageController extends Controller
         
     }
 
+    public function faq()
+    {
+        return view('faq');
+    }
+
     public function exchange(Request $request)
     {
         $directions = (new CurrencyService())->getDirectionsData();

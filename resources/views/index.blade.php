@@ -6,8 +6,8 @@
 <meta name="description" content="boltchange is an exchange of cryptocurrencies  and withdrawal method of funds.
 There are many online exchanges, but our crypto exchange is different with its easy
 usage and low fees. You can do your transactions without registration on the
-Boomcha">
-<meta name="keywords" content="boltchange  ,  boltchange.com , Boom Change, boltchange.io , Boom exchange, boltchange review ,">
+boltcha">
+<meta name="keywords" content="boltchange  ,  boltchange.com , bolt Change, boltchange.io , bolt exchange, boltchange review ,">
 <meta name="generator" content="SMARTWEB.AM">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="boltchange.com">
@@ -16,13 +16,13 @@ Boomcha">
 <meta property="og:description" content="boltchange is an exchange of cryptocurrencies  and withdrawal method of funds.
 There are many online exchanges, but our crypto exchange is different with its easy
 usage and low fees. You can do your transactions without registration on the
-Boomcha">
+boltcha">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="boltchange crypto exchange | boltchange.com">
 <meta name="twitter:description" content="boltchange is an exchange of cryptocurrencies  and withdrawal method of funds.
 There are many online exchanges, but our crypto exchange is different with its easy
 usage and low fees. You can do your transactions without registration on the
-Boomcha">
+boltcha">
 <meta name="resource-type" content="Document">
 <meta name="revisit" content="1">
 <meta name="robots" content="all">
@@ -254,7 +254,7 @@ $10</p>
 			<div class="col-md-6">
 				<div class="about-style-one-content">
 					<h2>Exchange crypto with boltchange</h2>
-					<p>Boom Change is a digital asset exchange that allows you to buy and sell cryptocurrencies. We offer a wide variety of digital assets exchange, including Bitcoin, Ethereum, Litecoin, and more.Our mission is to make it easy for everyone to trade digital assets, and we are committed to providing our users with the best possible experience.</p>				</div><!-- /.about-style-one-content -->
+					<p>bolt Change is a digital asset exchange that allows you to buy and sell cryptocurrencies. We offer a wide variety of digital assets exchange, including Bitcoin, Ethereum, Litecoin, and more.Our mission is to make it easy for everyone to trade digital assets, and we are committed to providing our users with the best possible experience.</p>				</div><!-- /.about-style-one-content -->
 			</div><!-- /.col-md-6 -->
 			<div class="col-md-6">
 				<img src="uploads/content/c3b7a3d.jpg?v=1"  class="moc-img" alt="Exchange crypto with boltchange">
@@ -411,7 +411,7 @@ $10</p>
 
 
 <script>var _smartsupp = _smartsupp || {};
-_smartsupp.key = '13d35c10fc9d3a578b46e0cac6d4b202331d321c';
+_smartsupp.key = '{{env('SMART_CHAT_KEY')}}';
 window.smartsupp||(function(d) {
   var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
   s=d.getElementsByTagName('script')[0];c=d.createElement('script');

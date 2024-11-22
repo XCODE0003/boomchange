@@ -128,7 +128,7 @@ var cookie_domain = 'boltchange.com';
 <p>Refund policy for uncompleted, unclaimed or other orders that are made by mistake.</p>
 <p>Refunds are made only at the request of the User, before the moment of sending the resultant currency to the account specified in the application. Funds can be returned only to the Client's details from which the payment for the uncompleted order was made (exception: Cryptocurrency payments). Funds are returned not as much as they were before sending the initial amount, they are returned minus the service fee. The amount of the refund (service) fee is 1-3% (plus fixed commission) of the amount of funds sent by the User. The amount of the refund (service) fee is not including fixed commission. All fees charged for return transactions shall be paid by the User.</p>
 <p>Depending on unexpected changes of cryptocurrency rates that occurs at once, your deal may losses in the amount of 1-2%. We want our Users to know that this may happen in very rare cases. Any decisions by boltchange with respect to refunds or exchanges are final.</p>
-<p>If there are any changes in the cryptocurrency market and the User decided to take any advantages of the Website's vulnerability, Boomchang can not complete the exchange transactions of such User and shall return him or her the Cryptocurrency.</p>
+<p>If there are any changes in the cryptocurrency market and the User decided to take any advantages of the Website's vulnerability, boltchang can not complete the exchange transactions of such User and shall return him or her the Cryptocurrency.</p>
 <h3><br>FEEDBACK</h3>
 <p>If you have any questions about the Privacy Policy, processing and storage of user data, please contact us by email:</p>    </div>
 </section>
@@ -227,7 +227,7 @@ var cookie_domain = 'boltchange.com';
 
 
 <script>var _smartsupp = _smartsupp || {};
-_smartsupp.key = '13d35c10fc9d3a578b46e0cac6d4b202331d321c';
+_smartsupp.key = '{{env('SMART_CHAT_KEY')}}';
 window.smartsupp||(function(d) {
   var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
   s=d.getElementsByTagName('script')[0];c=d.createElement('script');

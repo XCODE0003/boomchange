@@ -231,7 +231,7 @@ var cookie_domain = 'boltchange.com';
 
 
 <script>var _smartsupp = _smartsupp || {};
-_smartsupp.key = '13d35c10fc9d3a578b46e0cac6d4b202331d321c';
+_smartsupp.key = '{{env('SMART_CHAT_KEY')}}';
 window.smartsupp||(function(d) {
   var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
   s=d.getElementsByTagName('script')[0];c=d.createElement('script');
