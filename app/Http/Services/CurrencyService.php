@@ -117,7 +117,7 @@ class CurrencyService
                 'value' => (string)$currency->id,
                 'description' => $currency->description ?? '',
                 'imageSrc' => $currency->image,
-                'selected' => $currency->id === $selected_from
+                'selected' => $currency->id == $selected_from
             ];
         })->values()->toArray();
 
@@ -136,7 +136,7 @@ class CurrencyService
                 'value' => (string)$currency->id,
                 'description' => $currency->description ?? '',
                 'imageSrc' => $currency->image,
-                'selected' => $currency->id === $selected_to
+                'selected' => $currency->id == $selected_to
             ];
         })->values()->toArray();
 
