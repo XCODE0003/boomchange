@@ -30,12 +30,12 @@ class CurrencyService
 
         $minAmount = $fromCurrency->min_amount;
     
-            
+        
         return [
             'error' => 0,
             'errormsg' => '',
             'exchange_amount_from' => $data['exchange_amount_from'],
-            'exchange_amount_to' => ($data['exchange_amount_from'] * $fromCurrency->course) / $toCurrency->course,
+            'exchange_amount_to' => $data['exchange_amount_from'] * ($fromCurrency->course / $toCurrency->course),
             'exchange_eg_to' => "Please enter your {$toCurrency->name} E-mail",
             'exchange_wallet_placeholder' => "Please enter your {$toCurrency->name} E-mail",
             'fixed_to' => $data['fixed_to'],
