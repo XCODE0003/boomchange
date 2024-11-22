@@ -10,9 +10,11 @@ class PageController extends Controller
     public function index()
     {
         $directions = (new CurrencyService())->getDirectionsData();
-        $exchangeAmount = 1 / ($directions['directions_from_ar'][0]['course'] / $directions['directions_to_ar'][0]['course']);
+        $currency_from = Currency::where('id', 1)->first();
+        $currency_to = Currency::where('symbol', 'PAYPAL')->first();
+        $exchangeAmount = 1 / ($currency_from->course / $currency_to->course);
         
-        return view('index', compact('directions', 'exchangeAmount'));
+        return view('index', compact('directions', 'exchangeAmount', 'currency_from', 'currency_to'));
         
     }
 
