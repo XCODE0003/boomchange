@@ -35,7 +35,7 @@ class CurrencyService
             'error' => 0,
             'errormsg' => '',
             'exchange_amount_from' => $data['exchange_amount_from'],
-            'exchange_amount_to' => ($toCurrency->course / $fromCurrency->course ) * $data['exchange_amount_from'],
+            'exchange_amount_to' => ($data['exchange_amount_from'] * $fromCurrency->course) / $toCurrency->course,
             'exchange_eg_to' => "Please enter your {$toCurrency->name} E-mail",
             'exchange_wallet_placeholder' => "Please enter your {$toCurrency->name} E-mail",
             'fixed_to' => $data['fixed_to'],
@@ -54,7 +54,7 @@ class CurrencyService
         $toCurrency = Currency::find($data['exchange_to']);
         
         $minAmount = $toCurrency->min_amount;
-        $exchangeAmount = ($fromCurrency->course / $toCurrency->course) * floatval($data['exchange_amount_to']);
+        $exchangeAmount = ($data['exchange_amount_to'] * $toCurrency->course) / $fromCurrency->course;
         
         return [
             'error' => 0,
@@ -91,7 +91,7 @@ class CurrencyService
         $toCurrency = Currency::find($data['exchange_to']);
         
         $minAmount = $toCurrency->min_amount;
-        $exchangeAmount = ($fromCurrency->course / $toCurrency->course) * $data['exchange_amount_to'];
+        $exchangeAmount = ($data['exchange_amount_to'] * $toCurrency->course) / $fromCurrency->course;
         
             return [
                 'error' => 0,
@@ -100,6 +100,9 @@ class CurrencyService
                 'exchange_amount_to' => (float)$data['exchange_amount_to'],
                 'exchange_eg_to' => "ENTER ( Your {$toCurrency->name} E-mail adress or mobile number )",
                 'fixed_to' => $data['fixed_to'],
+                'limit_min_from_warning' => $data['exchange_amount_from'] < $minAmount 
+                ? "Minimum amount is <a>{$minAmount}</a> {$fromCurrency->name}"
+                : "",
                 'amount_change' => 0,
                 'exchange_wallet_placeholder' => "Please enter your " . strtoupper($toCurrency->name) . " account E-mail",
                 'exchange_to_ef_html' => ''
@@ -138,7 +141,6 @@ class CurrencyService
             ];
         })->values()->toArray();
 
-        // Устанавливаем первый элемент как выбранный
         if (!empty($directions)) {
             $directions[0]['selected'] = true;
         }
