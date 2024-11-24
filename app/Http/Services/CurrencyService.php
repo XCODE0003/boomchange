@@ -10,9 +10,12 @@ class CurrencyService
 {
     public function processExchange(array $data): array
     {
-
         $fromCurrency = Currency::find($data['exchange_from']);
         $toCurrency = Currency::find($data['exchange_to']);
+        
+        $amountInUsd = $data['exchange_amount_from'] / $fromCurrency->course;
+        $finalAmount = $amountInUsd * $toCurrency->course;
+        
         $directionsTo = Currency::where('type', 'fiat')
             ->where('is_active', true)
             ->get()
@@ -35,7 +38,7 @@ class CurrencyService
             'error' => 0,
             'errormsg' => '',
             'exchange_amount_from' => $data['exchange_amount_from'],
-            'exchange_amount_to' => $data['exchange_amount_from'] * ($fromCurrency->course / $toCurrency->course),
+            'exchange_amount_to' => $finalAmount,
             'exchange_eg_to' => "Please enter your {$toCurrency->name} E-mail",
             'exchange_wallet_placeholder' => "Please enter your {$toCurrency->name} E-mail",
             'fixed_to' => $data['fixed_to'],
@@ -53,20 +56,20 @@ class CurrencyService
         $fromCurrency = Currency::find($data['exchange_from']);
         $toCurrency = Currency::find($data['exchange_to']);
         
-        $minAmount = $toCurrency->min_amount;
-        $exchangeAmount = $data['exchange_amount_to'] / ($fromCurrency->course / $toCurrency->course);
+        $amountInUsd = $data['exchange_amount_to'] / $toCurrency->course;
+        $finalAmount = $amountInUsd * $fromCurrency->course;
         
         return [
             'error' => 0,
             'errormsg' => '',
-            'exchange_amount_from' => $exchangeAmount,
+            'exchange_amount_from' => $finalAmount,
             'exchange_amount_to' => $data['exchange_amount_to'],
             'exchange_eg_to' => "Please enter your {$toCurrency->name} E-mail",
             'fixed_to' => $data['fixed_to'],
             'amount_change' => 0,
             'exchange_wallet_placeholder' => "Please enter your {$toCurrency->name} E-mail",
-            'limit_min_to_warning' => $data['exchange_amount_to'] < $minAmount 
-                ? "Minimum amount is <a>{$minAmount}</a> {$toCurrency->name}"
+            'limit_min_to_warning' => $data['exchange_amount_to'] < $toCurrency->min_amount 
+                ? "Minimum amount is <a>{$toCurrency->min_amount}</a> {$toCurrency->name}"
                 : "",
             'exchange_to_ef_html' => ''
         ];
@@ -90,23 +93,23 @@ class CurrencyService
         $fromCurrency = Currency::find($data['exchange_from']);
         $toCurrency = Currency::find($data['exchange_to']);
         
-        $minAmount = $toCurrency->min_amount;
-        $exchangeAmount = $data['exchange_amount_to'] / ($fromCurrency->course / $toCurrency->course);
+        $amountInUsd = $data['exchange_amount_to'] / $toCurrency->course;
+        $finalAmount = $amountInUsd * $fromCurrency->course;
         
-            return [
-                'error' => 0,
-                'errormsg' => '',
-                'exchange_amount_from' => $exchangeAmount,
-                'exchange_amount_to' => (float)$data['exchange_amount_to'],
-                'exchange_eg_to' => "ENTER ( Your {$toCurrency->name} E-mail adress or mobile number )",
-                'fixed_to' => $data['fixed_to'],
-                'limit_min_from_warning' => $data['exchange_amount_from'] < $minAmount 
-                ? "Minimum amount is <a>{$minAmount}</a> {$fromCurrency->name}"
+        return [
+            'error' => 0,
+            'errormsg' => '',
+            'exchange_amount_from' => $finalAmount,
+            'exchange_amount_to' => (float)$data['exchange_amount_to'],
+            'exchange_eg_to' => "ENTER ( Your {$toCurrency->name} E-mail adress or mobile number )",
+            'fixed_to' => $data['fixed_to'],
+            'limit_min_from_warning' => $finalAmount < $fromCurrency->min_amount 
+                ? "Minimum amount is <a>{$fromCurrency->min_amount}</a> {$fromCurrency->name}"
                 : "",
-                'amount_change' => 0,
-                'exchange_wallet_placeholder' => "Please enter your " . strtoupper($toCurrency->name) . " account E-mail",
-                'exchange_to_ef_html' => ''
-            ];
+            'amount_change' => 0,
+            'exchange_wallet_placeholder' => "Please enter your " . strtoupper($toCurrency->name) . " account E-mail",
+            'exchange_to_ef_html' => ''
+        ];
     }
 
     private function prepareDirectionsFrom($currencies, $selected_from): array
