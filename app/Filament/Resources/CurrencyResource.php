@@ -59,7 +59,9 @@ class CurrencyResource extends Resource
                         ->label('Активна'),
                 ])->columns(1),
                 Forms\Components\FileUpload::make('image')
-                ->label('Изображение'),
+                ->label('Изображение')
+                ->disk('public')
+                ->directory('uploads/coins'),
                 Forms\Components\TextInput::make('coinmarketcap_id')
                     ->label('CoinMarketCap ID монеты')
                     ->visible(fn(Forms\Get $get): bool => $get('type') === 'crypto'),
