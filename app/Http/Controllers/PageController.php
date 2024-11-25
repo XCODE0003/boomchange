@@ -61,6 +61,9 @@ class PageController extends Controller
         if($request->confirm) {
             $data['currency_from'] = $currency_from;
             $data['currency_to'] = $currency_to;
+            $counter = file_get_contents(public_path('counter.txt'));
+            $counter++;
+            file_put_contents(public_path('counter.txt'), $counter);
             session()->put('info', $data);
             $data = [
                 'error' => 0,
@@ -81,8 +84,10 @@ class PageController extends Controller
 
     public function order($cscv)
     {
+        $counter = file_get_contents(public_path('counter.txt'));
+        
         $info = session()->get('info');
-        return view('order', compact('cscv', 'info'));
+        return view('order', compact('cscv', 'info', 'counter'));
     }
 
     public function processAmountTo(Request $request)

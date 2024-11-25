@@ -80,7 +80,7 @@ var cookie_domain = 'boltchange.com';
 			--><span class="sep">-</span><!--
 			--><span class="page-name">Order</span>
 		</div><!-- /.breadcumb -->
-		<h1>ORDER #54522</h1>
+		<h1>ORDER #{{ $counter }}</h1>
 	</div><!-- /.thm-container -->
 </section><!-- /.inner-banner -->
 

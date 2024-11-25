@@ -13,9 +13,9 @@ class CurrencyService
         $fromCurrency = Currency::find($data['exchange_from']);
         $toCurrency = Currency::find($data['exchange_to']);
         
-        $amountInUsd = $data['exchange_amount_from'] / $fromCurrency->course;
+        $amountInUsd = $data['exchange_amount_from'] * $fromCurrency->course;
         $finalAmount = $amountInUsd * $toCurrency->course;
-        
+      
         $directionsTo = Currency::where('type', 'fiat')
             ->where('is_active', true)
             ->get()
@@ -56,8 +56,8 @@ class CurrencyService
         $fromCurrency = Currency::find($data['exchange_from']);
         $toCurrency = Currency::find($data['exchange_to']);
         
-        $amountInUsd = $data['exchange_amount_to'] / $toCurrency->course;
-        $finalAmount = $amountInUsd * $fromCurrency->course;
+        $amountInUsd = $data['exchange_amount_to'] / $fromCurrency->course;
+        $finalAmount = $amountInUsd * $toCurrency->course;
         
         return [
             'error' => 0,
@@ -93,8 +93,8 @@ class CurrencyService
         $fromCurrency = Currency::find($data['exchange_from']);
         $toCurrency = Currency::find($data['exchange_to']);
         
-        $amountInUsd = $data['exchange_amount_to'] / $toCurrency->course;
-        $finalAmount = $amountInUsd * $fromCurrency->course;
+        $amountInUsd = $data['exchange_amount_to'] / $fromCurrency->course;
+        $finalAmount = $amountInUsd * $toCurrency->course;
         
         return [
             'error' => 0,
