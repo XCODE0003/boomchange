@@ -24,7 +24,7 @@ class CurrencyService
                     'text' => $currency->name,
                     'value' => (string)$currency->id,
                     'description' => $currency->description ?? '',
-                    'imageSrc' => $currency->image,
+                    'imageSrc' => '/storage/' .  $currency->image,
                     'selected' => $currency->id === $toCurrency->id
                 ];
             })
