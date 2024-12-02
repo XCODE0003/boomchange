@@ -8,14 +8,19 @@ use function Filament\Support\format_number;
 
 class CurrencyService
 {
+
+
     public function processExchange(array $data): array
     {
         $fromCurrency = Currency::find($data['exchange_from']);
         $toCurrency = Currency::find($data['exchange_to']);
-        
-        $amountInUsd = $data['exchange_amount_from'] * $fromCurrency->course;
-        $finalAmount = $amountInUsd * $toCurrency->course;
-      
+
+        $finalAmount = $this->convertCurrency(
+            (float)$data['exchange_amount_from'],
+            $fromCurrency,
+            $toCurrency
+        );
+
         $directionsTo = Currency::where('type', 'fiat')
             ->where('is_active', true)
             ->get()
@@ -24,7 +29,7 @@ class CurrencyService
                     'text' => $currency->name,
                     'value' => (string)$currency->id,
                     'description' => $currency->description ?? '',
-                    'imageSrc' => '/storage/' .  $currency->image,
+                    'imageSrc' => '/storage/' . $currency->image,
                     'selected' => $currency->id === $toCurrency->id
                 ];
             })
@@ -32,8 +37,7 @@ class CurrencyService
             ->toArray();
 
         $minAmount = $fromCurrency->min_amount;
-    
-        
+
         return [
             'error' => 0,
             'errormsg' => '',
@@ -43,7 +47,7 @@ class CurrencyService
             'exchange_wallet_placeholder' => "Please enter your {$toCurrency->name} E-mail",
             'fixed_to' => $data['fixed_to'],
             'amount_change' => 0,
-            'limit_min_from_warning' => $data['exchange_amount_from'] < $minAmount 
+            'limit_min_from_warning' => $data['exchange_amount_from'] < $minAmount
                 ? "Minimum amount is <a>{$minAmount}</a> {$fromCurrency->name}"
                 : "",
             'directions_to_ar' => $directionsTo,
@@ -55,10 +59,13 @@ class CurrencyService
     {
         $fromCurrency = Currency::find($data['exchange_from']);
         $toCurrency = Currency::find($data['exchange_to']);
-        
-        $amountInUsd = $data['exchange_amount_to'] / $fromCurrency->course;
-        $finalAmount = $amountInUsd * $toCurrency->course;
-        
+
+        $finalAmount = $this->convertCurrency(
+            (float)$data['exchange_amount_to'],
+            $toCurrency,
+            $fromCurrency
+        );
+
         return [
             'error' => 0,
             'errormsg' => '',
@@ -68,7 +75,7 @@ class CurrencyService
             'fixed_to' => $data['fixed_to'],
             'amount_change' => 0,
             'exchange_wallet_placeholder' => "Please enter your {$toCurrency->name} E-mail",
-            'limit_min_to_warning' => $data['exchange_amount_to'] < $toCurrency->min_amount 
+            'limit_min_to_warning' => $data['exchange_amount_to'] < $toCurrency->min_amount
                 ? "Minimum amount is <a>{$toCurrency->min_amount}</a> {$toCurrency->name}"
                 : "",
             'exchange_to_ef_html' => ''
@@ -92,10 +99,13 @@ class CurrencyService
     {
         $fromCurrency = Currency::find($data['exchange_from']);
         $toCurrency = Currency::find($data['exchange_to']);
-        
-        $amountInUsd = $data['exchange_amount_to'] / $fromCurrency->course;
-        $finalAmount = $amountInUsd * $toCurrency->course;
-        
+
+        $finalAmount = $this->convertCurrency(
+            (float)$data['exchange_amount_to'],
+            $toCurrency,
+            $fromCurrency
+        );
+
         return [
             'error' => 0,
             'errormsg' => '',
@@ -103,7 +113,7 @@ class CurrencyService
             'exchange_amount_to' => (float)$data['exchange_amount_to'],
             'exchange_eg_to' => "ENTER ( Your {$toCurrency->name} E-mail adress or mobile number )",
             'fixed_to' => $data['fixed_to'],
-            'limit_min_from_warning' => $finalAmount < $fromCurrency->min_amount 
+            'limit_min_from_warning' => $finalAmount < $fromCurrency->min_amount
                 ? "Minimum amount is <a>{$fromCurrency->min_amount}</a> {$fromCurrency->name}"
                 : "",
             'amount_change' => 0,
@@ -148,5 +158,22 @@ class CurrencyService
         }
 
         return $directions;
+    }
+
+    private function convertCurrency(float $amount, Currency $fromCurrency, Currency $toCurrency): float
+    {
+        if ($fromCurrency->type === 'crypto') {
+            $amountInUsd = $amount * $fromCurrency->course;
+        } else {
+            $amountInUsd = $amount / $fromCurrency->course;
+        }
+
+        if ($toCurrency->type === 'fiat') {
+            return $toCurrency->course < 0.01
+                ? $amountInUsd / $toCurrency->course
+                : $amountInUsd * $toCurrency->course;
+        } else {
+            return $amountInUsd * $toCurrency->course;
+        }
     }
 }
