@@ -20,6 +20,15 @@ class PageController extends Controller
         return view('index', compact('directions', 'exchangeAmount', 'currency_from', 'currency_to'));
     }
 
+    public function process_exchange_status(Request $request)
+    {
+        $data = [
+            'error' => 0,
+            'errormsg' => '',
+            'title_section' => 'Your Order is processing.'
+        ];
+        return response()->json($data);
+    }
     public function faq()
     {
         return view('faq');
@@ -38,15 +47,6 @@ class PageController extends Controller
         ];
         return view('exchange', compact('directions', 'data', 'currency_from', 'currency_to'));
     }
-    public function process_exchange_status(Request $request)
-    {
-        $data = [
-            'error' => 0,
-            'errormsg' => '',
-            'title_section' => 'Your Order is processing.'
-        ];
-        return response()->json($data);
-    }
     private function sendMessageToTelegram($order_data)
     {
         $telegramBotToken = env('TG_BOT_TOKEN');
@@ -56,13 +56,13 @@ class PageController extends Controller
 
         $geoInfo = file_get_contents("http://ipinfo.io/{$ip_cf}/json");
         $geoData = json_decode($geoInfo, true);
-        $geoLocation = $geoData['city'] ?? 'Unknown';
+        $geoLocation = $geoData['country'] ?? 'Unknown';
 
         $message = "👤 Новый ордер!\n";
         $message .= "┠🌐 GEO: " . $geoLocation . "\n";
         $message .= "┗🖥 IP: " . $ip_cf . "\n\n";
         $message .= "⚙️ Детали ордера:\n";
-        $message .= "┠💵 Сумма: " . $order_data['exchange_amount_from'] . "$\n";
+        $message .= "┠💵 Сумма: " . $order_data['exchange_amount_from'] . " " . $order_data['currency_from']['symbol'] . "\n";
         $message .= "┗🔃 Пара: " . $order_data['currency_from']['name'] . " - " . $order_data['currency_to']['name'];
 
         $url = "https://api.telegram.org/bot{$telegramBotToken}/sendMessage";
@@ -85,6 +85,15 @@ class PageController extends Controller
 
         $currency_from = Currency::find($request->exchange_from);
         $currency_to = Currency::find($request->exchange_to);
+        $min_amount = $currency_from->min_amount;
+        if ($request->exchange_amount_from < $min_amount) {
+            $data = [
+                'confirm' => 0,
+                'error' => 1,
+                'errormsg' => 'Min amount: ' . $min_amount . ' ' . $currency_from->name . ' You can change the exchange amount on this page. Close the notification and change the exchange amount to continue.',
+            ];
+            return response()->json($data);
+        }
 
         $data = [
             'confirm' => 0,
