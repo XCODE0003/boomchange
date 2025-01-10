@@ -21,7 +21,7 @@ class CurrencyService
             $toCurrency
         );
 
-        $directionsTo = Currency::where('type', 'fiat')
+        $directionsTo = Currency::query()
             ->where('is_active', true)
             ->get()
             ->map(function ($currency) use ($toCurrency) {
@@ -124,15 +124,17 @@ class CurrencyService
 
     private function prepareDirectionsFrom($currencies, $selected_from): array
     {
-        $directions = $currencies['crypto']->map(function ($currency) use ($selected_from) {
-            return [
-                'text' => $currency->name,
-                'value' => (string)$currency->id,
-                'description' => $currency->description ?? '',
-                'imageSrc' => '/storage/' . $currency->image,
-                'selected' => $currency->id == $selected_from
-            ];
-        })->values()->toArray();
+        $directions = collect()
+            ->concat($currencies['crypto'])
+            ->map(function ($currency) use ($selected_from) {
+                return [
+                    'text' => $currency->name,
+                    'value' => (string)$currency->id,
+                    'description' => $currency->description ?? '',
+                    'imageSrc' => '/storage/' . $currency->image,
+                    'selected' => $currency->id == $selected_from
+                ];
+            })->values()->toArray();
 
         if (!empty($directions)) {
             $directions[0]['selected'] = true;
@@ -143,15 +145,18 @@ class CurrencyService
 
     private function prepareDirectionsTo($currencies, $selected_to): array
     {
-        $directions = $currencies['fiat']->map(function ($currency) use ($selected_to) {
-            return [
-                'text' => $currency->name,
-                'value' => (string)$currency->id,
-                'description' => $currency->description ?? '',
-                'imageSrc' => '/storage/' . $currency->image,
-                'selected' => $currency->id == $selected_to
-            ];
-        })->values()->toArray();
+        $directions = collect()
+            ->concat($currencies['crypto'])
+            ->concat($currencies['fiat'])
+            ->map(function ($currency) use ($selected_to) {
+                return [
+                    'text' => $currency->name,
+                    'value' => (string)$currency->id,
+                    'description' => $currency->description ?? '',
+                    'imageSrc' => '/storage/' . $currency->image,
+                    'selected' => $currency->id == $selected_to
+                ];
+            })->values()->toArray();
 
         if (!empty($directions)) {
             $directions[0]['selected'] = true;

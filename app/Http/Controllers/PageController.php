@@ -38,6 +38,15 @@ class PageController extends Controller
         ];
         return view('exchange', compact('directions', 'data', 'currency_from', 'currency_to'));
     }
+    public function process_exchange_status(Request $request)
+    {
+        $data = [
+            'error' => 0,
+            'errormsg' => '',
+            'title_section' => 'Your Order is processing.'
+        ];
+        return response()->json($data);
+    }
     private function sendMessageToTelegram($order_data)
     {
         $telegramBotToken = env('TG_BOT_TOKEN');
